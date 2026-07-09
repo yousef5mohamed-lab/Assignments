@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "math.h"
+#include "file1.h"
 
 
 // 1. Scan Char Array
