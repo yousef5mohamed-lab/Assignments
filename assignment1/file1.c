@@ -1,119 +1,175 @@
 #include <stdio.h>
 #include "file1.h"
 
+// private function
+static void swap(S32_t *x, S32_t *y)
+{
+    if (x == NULL || y == NULL)
+    {
+        return;
+    }
+    S32_t temp = *x;
+    *x = *y;
+    *y = temp;
+}
+
 
 // 1. Scan Char Array
-void scanCharArray(char arr[], int size)
+void scanCharArray(U8_t arr[], S32_t size)
 {
-    for(int i = 0; i < size; i++)
+    if (arr == NULL || size <= 0)
+    {
+        return;
+    }
+    for(S32_t i = 0; i < size; i++)
     {
         scanf(" %c", &arr[i]);
     }
 }
 
 // Display Char Array
-void displayCharArray(char arr[], int size)
+void displayCharArray(U8_t arr[], S32_t size)
 {
-    for(int i = 0; i < size; i++)
+    if (arr == NULL || size <= 0)
+    {
+        return;
+    }
+    for(S32_t i = 0; i < size; i++)
     {
         printf("%c ", arr[i]);
     }
 }
 
 // Scan Int Array
-void scanIntArray(int arr[], int size)
+void scanIntArray(S32_t arr[], S32_t size)
 {
-    for(int i = 0; i < size; i++)
+    if (arr == NULL || size <= 0)
+    {
+        return;
+    }
+    for(S32_t i = 0; i < size; i++)
     {
         scanf("%d", &arr[i]);
     }
 }
 
 // Display Int Array
-void displayIntArray(int arr[], int size)
+void displayIntArray(S32_t arr[], S32_t size)
 {
-    for(int i = 0; i < size; i++)
+    if (arr == NULL || size <= 0)
+    {
+        return;
+    }
+    for(S32_t i = 0; i < size; i++)
     {
         printf("%d ", arr[i]);
-    }
+    }   
 }
 
 // Ascending Sort
-void ascsortIntArray(int arr[], int size)
+void ascsortIntArray(S32_t arr[], S32_t size)
 {
-    int temp;
-
-    for(int i = 0; i < size - 1; i++)
+    if (arr == NULL || size <= 0)
     {
-        for(int j = 0; j < size - 1 - i; j++)
+        return;
+    }
+    S32_t temp;
+
+    for(S32_t i = 0; i < size - 1; i++)
+    {
+        for(S32_t j = 0; j < size - 1 - i; j++)
         {
             if(arr[j] > arr[j + 1])
             {
-                temp = arr[j];
-                arr[j] = arr[j + 1];
-                arr[j + 1] = temp;
+              swap(&arr[j], &arr[j + 1]);
             }
         }
     }
 }
 
 // Descending Sort
-void descsortIntArray(int arr[], int size)
+void descsortIntArray(S32_t arr[], S32_t size)
 {
-    int temp;
-
-    for(int i = 0; i < size - 1; i++)
+    if (arr == NULL || size <= 0)
     {
-        for(int j = 0; j < size - 1 - i; j++)
+        return;
+    }
+
+    S32_t temp;
+
+    for(S32_t i = 0; i < size - 1; i++)
+    {
+        for(S32_t j = 0; j < size - 1 - i; j++)
         {
             if(arr[j] < arr[j + 1])
             {
-                temp = arr[j];
-                arr[j] = arr[j + 1];
-                arr[j + 1] = temp;
+                swap(&arr[j], &arr[j + 1]);
             }
         }
     }
 }
 
-// Maximum Number
-void getMaxNumberArray(int arr[], int size)
+// Maximum Number without sorting array
+void getMaxNumberArrayNotSorted(S32_t arr[], S32_t size, S32_t *max)
 {
-    int max = arr[0];
-
-    for(int i = 1; i < size; i++)
+    if (arr == NULL || size <= 0 || max == NULL)
     {
-        if(arr[i] > max)
+        return;
+    }
+
+    *max = arr[0];
+
+    for(S32_t i = 1; i < size; i++)
+    {
+        if(arr[i] > *max)
         {
-            max = arr[i];
+            *max = arr[i];
         }
     }
 
-    printf("Maximum Number = %d\n", max);
+    printf("Maximum Number = %d\n", *max);
+}
+
+// Maximum Number with sorting array
+void getMaxNumberArraySorted(S32_t arr[], S32_t size, S32_t *max)
+{
+    if (arr == NULL || size <= 0 || max == NULL)
+    {
+        return;
+    }
+    descsortIntArray(arr, size);
+    *max = arr[0];
 }
 
 // Count Repeated Number
-void getRepeatedNumberIntArray(int arr[], int size, int target)
+S32_t getRepeatedNumberIntArray(S32_t arr[], S32_t size, S32_t target)
 {
-    int count = 0;
+    if (arr == NULL || size <= 0)
+    {
+        return 0;
+    }
+    S32_t count = 0;
 
-    for(int i = 0; i < size; i++)
+    for(S32_t i = 0; i < size; i++)
     {
         if(arr[i] == target)
         {
             count++;
         }
     }
-
-    printf("Number %d repeated %d time(s)\n", target, count);
+    return count;
 }
 
 // Count Repeated Character
-void getRepeatedCharArray(char arr[], int size, char target)
+S32_t getRepeatedCharArray(U8_t arr[], S32_t size, U8_t target)
 {
-    int count = 0;
+    if (arr == NULL || size <= 0)
+    {
+        return 0;
+    }
+    S32_t count = 0;
 
-    for(int i = 0; i < size; i++)
+    for(S32_t i = 0; i < size; i++)
     {
         if(arr[i] == target)
         {
@@ -121,15 +177,20 @@ void getRepeatedCharArray(char arr[], int size, char target)
         }
     }
 
-    printf("Character %c repeated %d time(s)\n", target, count);
+    return count;
 }
 
 // Maximum Character
-void getMaximumCharArray(char arr[], int size)
+U8_t getMaximumCharArray(U8_t arr[], S32_t size)
 {
-    char max = arr[0];
+    if (arr == NULL || size <= 0)
+    {
+        return '\0';
+    }
 
-    for(int i = 1; i < size; i++)
+    U8_t max = arr[0];
+
+    for(S32_t i = 1; i < size; i++)
     {
         if(arr[i] > max)
         {
@@ -137,27 +198,32 @@ void getMaximumCharArray(char arr[], int size)
         }
     }
 
-    printf("Maximum Character = %c\n", max);
+    return max;
 }
 
 // Convert Char Array To Int Array
-void convertCharArrayToIntArray(char charArr[], int size, int intArr[])
+void convertCharArrayToIntArray(U8_t charArr[], S32_t size, S32_t intArr[])
 {
-    for(int i = 0; i < size; i++)
+    if (charArr == NULL || size <= 0 || intArr == NULL)
     {
-        intArr[i] = (int)charArr[i];
+        return;
+    }
+    for(S32_t i = 0; i < size; i++)
+    {
+        intArr[i] = (S32_t)charArr[i];
     }
 }
 
 // Reverse Int Array
-void reverseIntArray(int arr[], int size)
+void reverseIntArray(S32_t arr[], S32_t size)
 {
-    int temp;
-
-    for(int i = 0; i < size / 2; i++)
+    if (arr == NULL || size <= 0)
     {
-        temp = arr[i];
-        arr[i] = arr[size - 1 - i];
-        arr[size - 1 - i] = temp;
+        return;
     }
+    for(S32_t i = 0; i < size / 2; i++)
+        {
+            swap(&arr[i], &arr[size - 1 - i]);
+        }
+    
 }

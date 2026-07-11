@@ -3,12 +3,15 @@
 
 int main()
 {
-    char charArr[100];
-    int intArr[100];
-    int charSize;
-    int intSize;
-    int targetNumber;
-    char targetChar;
+    U8_t charArr[MAX_SIZE];
+    S32_t intArr[MAX_SIZE];
+    S32_t charSize;
+    S32_t intSize;
+    S32_t targetNumber;
+    U8_t targetChar;
+    S32_t maxNumber;
+    S32_t repeatedCount;
+    U8_t maxChar;
 
     // 1. Scan & Display Char Array
     printf("Enter size of char array: ");
@@ -17,7 +20,7 @@ int main()
     printf("Enter %d characters:\n", charSize);
     scanCharArray(charArr, charSize);
 
-    printf("Char Array: ");
+    printf("\nChar Array: ");
     displayCharArray(charArr, charSize);
     printf("\n\n");
 
@@ -46,16 +49,20 @@ int main()
     displayIntArray(intArr, intSize);
     printf("\n\n");
 
-    // 3. Maximum Number
-    getMaxNumberArray(intArr, intSize);
+    // 3. Maximum Number without sorting array
+    getMaxNumberArrayNotSorted(intArr, intSize, &maxNumber);
+    printf("Maximum Number (without sorting): %d\n", maxNumber);
 
-    printf("\n");
+    // Maximum Number with sorting array
+    getMaxNumberArraySorted(intArr, intSize, &maxNumber);
+    printf("Maximum Number (with sorting): %d\n", maxNumber);
 
     // 4. Count Repeated Number
     printf("Enter number to search: ");
     scanf("%d", &targetNumber);
 
-    getRepeatedNumberIntArray(intArr, intSize, targetNumber);
+    repeatedCount =  getRepeatedNumberIntArray(intArr, intSize, targetNumber);
+    printf("Number of repetitions of %d: %d\n", targetNumber, repeatedCount);
 
     printf("\n");
 
@@ -63,12 +70,14 @@ int main()
     printf("Enter character to search: ");
     scanf(" %c", &targetChar);
 
-    getRepeatedCharArray(charArr, charSize, targetChar);
+    repeatedCount = getRepeatedCharArray(charArr, charSize, targetChar);
+    printf("Number of repetitions of '%c': %d\n", targetChar, repeatedCount);
 
     printf("\n");
 
     // 6. Maximum Character
-    getMaximumCharArray(charArr, charSize);
+    maxChar = getMaximumCharArray(charArr, charSize);
+    printf("Maximum Character: '%c'\n", maxChar);
 
     printf("\n");
 
