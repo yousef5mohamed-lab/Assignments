@@ -39,4 +39,8 @@ void convertCharArrayToIntArray(U8_t charArr[], S32_t size, S32_t intArr[]);
 // 8. Reverse Integer Array
 void reverseIntArray(S32_t arr[], S32_t size);
 
+// Reverse Char Array
+void reverseCharArray(U8_t arr[], S32_t size);
+
+
 #endif

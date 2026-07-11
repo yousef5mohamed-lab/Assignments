@@ -227,3 +227,16 @@ void reverseIntArray(S32_t arr[], S32_t size)
         }
     
 }
+
+// Reverse Char Array
+void reverseCharArray(U8_t arr[], S32_t size)
+{
+    if (arr == NULL || size <= 0)
+    {
+        return;
+    }
+    for(S32_t i = 0; i < size / 2; i++)
+        {
+           swap((S32_t*)&arr[i], (S32_t*)&arr[size - 1 - i]);
+        }
+}

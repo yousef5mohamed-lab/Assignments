@@ -99,5 +99,11 @@ int main()
 
     printf("\n");
 
+    // Reverse Char Array
+    reverseCharArray(charArr, charSize);
+    printf("Reversed Char Array:\n");
+    displayCharArray(charArr, charSize);
+    
+
     return 0;
 }
