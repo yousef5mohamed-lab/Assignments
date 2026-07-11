@@ -1,5 +1,5 @@
-#ifndef TASKSTD_H
-#define TASKSTD_H
+#ifndef STDTYPE_H
+#define STDTYPE_H
 
 typedef unsigned char U8_t;
 typedef signed char S8_t;
