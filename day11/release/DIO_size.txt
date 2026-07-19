@@ -1,0 +1,2 @@
+   text	   data	    bss	    dec	    hex	filename
+    130	      0	      0	    130	     82	C:\Users\lenovo\OneDrive\Desktop\assignments\day11\release\DIO.elf
