@@ -1,7 +1,7 @@
 {
-  "projectName": "day11",
-  "projectPath": "C:\\Users\\lenovo\\OneDrive\\Desktop\\assignments\\day11",
-  "outputPath": "C:\\Users\\lenovo\\OneDrive\\Desktop\\assignments\\day11",
+  "projectName": "Animation_task4",
+  "projectPath": "C:\\Users\\lenovo\\OneDrive\\Desktop\\assignments\\day11\\Animation_task4",
+  "outputPath": "C:\\Users\\lenovo\\OneDrive\\Desktop\\assignments\\day11\\Animation_task4",
   "outputName": "Animation",
   "target": "AVR",
   "mcu": "atmega32",
@@ -25,6 +25,6 @@
   "port": "",
   "baudRate": "115200",
   "timeout": "5000",
-  "firmwareFile": "C:\\Users\\lenovo\\OneDrive\\Desktop\\assignments\\day11/Animation.hex",
+  "firmwareFile": "C:\\Users\\lenovo\\OneDrive\\Desktop\\assignments\\day11\\Animation_task4/Animation.hex",
   "programmer": "usbasp"
 }

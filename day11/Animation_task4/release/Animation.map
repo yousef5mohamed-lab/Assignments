@@ -20,7 +20,8 @@ user_signatures  0x00850000         0x00000400         rw!x
 Linker script and memory map
 
 LOAD C:/avr-toolchain/bin/../lib/gcc/avr/15.1.0/../../../../avr/lib/avr5/crtatmega32.o
-LOAD C:\Users\lenovo\OneDrive\Desktop\assignments\day11\release\Switch\switch_program.c.o
+LOAD C:\Users\lenovo\OneDrive\Desktop\assignments\day11\Animation_task4\release\Animation_program.c.o
+LOAD C:\Users\lenovo\OneDrive\Desktop\assignments\day11\Animation_task4\release\main.c.o
 START GROUP
 LOAD C:/avr-toolchain/bin/../lib/gcc/avr/15.1.0/avr5\libgcc.a
 LOAD C:/avr-toolchain/bin/../lib/gcc/avr/15.1.0/../../../../avr/lib/avr5\libm.a
@@ -127,7 +128,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000       0x82
+.text           0x00000000      0x10e
  *(.vectors)
  .vectors       0x00000000       0x54 C:/avr-toolchain/bin/../lib/gcc/avr/15.1.0/../../../../avr/lib/avr5/crtatmega32.o
                 0x00000000                __vector_default
@@ -201,30 +202,36 @@ END GROUP
                 0x00000068                __vector_16
                 0x00000068                __vector_18
                 0x00000068                __vector_20
- .text          0x0000006c        0x0 C:\Users\lenovo\OneDrive\Desktop\assignments\day11\release\Switch\switch_program.c.o
- .text          0x0000006c        0x0 C:/avr-toolchain/bin/../lib/gcc/avr/15.1.0/avr5\libgcc.a(_exit.o)
-                0x0000006c                        . = ALIGN (0x2)
+ .text          0x0000006c       0x90 C:\Users\lenovo\OneDrive\Desktop\assignments\day11\Animation_task4\release\Animation_program.c.o
+                0x0000006c                LED_Init
+                0x00000072                LED_AllOn
+                0x00000078                LED_AllOff
+                0x0000007c                LED_Animation
+                0x000000ca                LED_Blink
+ .text          0x000000fc        0x0 C:\Users\lenovo\OneDrive\Desktop\assignments\day11\Animation_task4\release\main.c.o
+ .text          0x000000fc        0x0 C:/avr-toolchain/bin/../lib/gcc/avr/15.1.0/avr5\libgcc.a(_exit.o)
+                0x000000fc                        . = ALIGN (0x2)
  *(.text.*)
- .text.startup  0x0000006c       0x12 C:\Users\lenovo\OneDrive\Desktop\assignments\day11\release\Switch\switch_program.c.o
-                0x0000006c                main
+ .text.startup  0x000000fc        0xe C:\Users\lenovo\OneDrive\Desktop\assignments\day11\Animation_task4\release\main.c.o
+                0x000000fc                main
  .text.libgcc.mul
-                0x0000007e        0x0 C:/avr-toolchain/bin/../lib/gcc/avr/15.1.0/avr5\libgcc.a(_exit.o)
+                0x0000010a        0x0 C:/avr-toolchain/bin/../lib/gcc/avr/15.1.0/avr5\libgcc.a(_exit.o)
  .text.libgcc.div
-                0x0000007e        0x0 C:/avr-toolchain/bin/../lib/gcc/avr/15.1.0/avr5\libgcc.a(_exit.o)
- .text.libgcc   0x0000007e        0x0 C:/avr-toolchain/bin/../lib/gcc/avr/15.1.0/avr5\libgcc.a(_exit.o)
+                0x0000010a        0x0 C:/avr-toolchain/bin/../lib/gcc/avr/15.1.0/avr5\libgcc.a(_exit.o)
+ .text.libgcc   0x0000010a        0x0 C:/avr-toolchain/bin/../lib/gcc/avr/15.1.0/avr5\libgcc.a(_exit.o)
  .text.libgcc.prologue
-                0x0000007e        0x0 C:/avr-toolchain/bin/../lib/gcc/avr/15.1.0/avr5\libgcc.a(_exit.o)
+                0x0000010a        0x0 C:/avr-toolchain/bin/../lib/gcc/avr/15.1.0/avr5\libgcc.a(_exit.o)
  .text.libgcc.builtins
-                0x0000007e        0x0 C:/avr-toolchain/bin/../lib/gcc/avr/15.1.0/avr5\libgcc.a(_exit.o)
+                0x0000010a        0x0 C:/avr-toolchain/bin/../lib/gcc/avr/15.1.0/avr5\libgcc.a(_exit.o)
  .text.libgcc.fmul
-                0x0000007e        0x0 C:/avr-toolchain/bin/../lib/gcc/avr/15.1.0/avr5\libgcc.a(_exit.o)
+                0x0000010a        0x0 C:/avr-toolchain/bin/../lib/gcc/avr/15.1.0/avr5\libgcc.a(_exit.o)
  .text.libgcc.fixed
-                0x0000007e        0x0 C:/avr-toolchain/bin/../lib/gcc/avr/15.1.0/avr5\libgcc.a(_exit.o)
-                0x0000007e                        . = ALIGN (0x2)
+                0x0000010a        0x0 C:/avr-toolchain/bin/../lib/gcc/avr/15.1.0/avr5\libgcc.a(_exit.o)
+                0x0000010a                        . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x0000007e        0x0 C:/avr-toolchain/bin/../lib/gcc/avr/15.1.0/avr5\libgcc.a(_exit.o)
-                0x0000007e                _exit
-                0x0000007e                exit
+ .fini9         0x0000010a        0x0 C:/avr-toolchain/bin/../lib/gcc/avr/15.1.0/avr5\libgcc.a(_exit.o)
+                0x0000010a                _exit
+                0x0000010a                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -243,21 +250,22 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x0000007e        0x4 C:/avr-toolchain/bin/../lib/gcc/avr/15.1.0/avr5\libgcc.a(_exit.o)
+ .fini0         0x0000010a        0x4 C:/avr-toolchain/bin/../lib/gcc/avr/15.1.0/avr5\libgcc.a(_exit.o)
  *(.fini0)
  *(.hightext)
  *(.hightext*)
  *(.progmemx.*)
-                0x00000082                        . = ALIGN (0x2)
+                0x0000010e                        . = ALIGN (0x2)
  *(.jumptables)
  *(.jumptables*)
-                0x00000082                        _etext = .
+                0x0000010e                        _etext = .
 
-.data           0x00800060        0x0 load address 0x00000082
+.data           0x00800060        0x0 load address 0x0000010e
                 [!provide]                        PROVIDE (__data_start = .)
  *(.data)
  .data          0x00800060        0x0 C:/avr-toolchain/bin/../lib/gcc/avr/15.1.0/../../../../avr/lib/avr5/crtatmega32.o
- .data          0x00800060        0x0 C:\Users\lenovo\OneDrive\Desktop\assignments\day11\release\Switch\switch_program.c.o
+ .data          0x00800060        0x0 C:\Users\lenovo\OneDrive\Desktop\assignments\day11\Animation_task4\release\Animation_program.c.o
+ .data          0x00800060        0x0 C:\Users\lenovo\OneDrive\Desktop\assignments\day11\Animation_task4\release\main.c.o
  .data          0x00800060        0x0 C:/avr-toolchain/bin/../lib/gcc/avr/15.1.0/avr5\libgcc.a(_exit.o)
  *(.data*)
  *(.gnu.linkonce.d*)
@@ -272,13 +280,14 @@ END GROUP
                 [!provide]                        PROVIDE (__bss_start = .)
  *(.bss)
  .bss           0x00800060        0x0 C:/avr-toolchain/bin/../lib/gcc/avr/15.1.0/../../../../avr/lib/avr5/crtatmega32.o
- .bss           0x00800060        0x0 C:\Users\lenovo\OneDrive\Desktop\assignments\day11\release\Switch\switch_program.c.o
+ .bss           0x00800060        0x0 C:\Users\lenovo\OneDrive\Desktop\assignments\day11\Animation_task4\release\Animation_program.c.o
+ .bss           0x00800060        0x0 C:\Users\lenovo\OneDrive\Desktop\assignments\day11\Animation_task4\release\main.c.o
  .bss           0x00800060        0x0 C:/avr-toolchain/bin/../lib/gcc/avr/15.1.0/avr5\libgcc.a(_exit.o)
  *(.bss*)
  *(COMMON)
                 [!provide]                        PROVIDE (__bss_end = .)
-                0x00000082                        __data_load_start = LOADADDR (.data)
-                0x00000082                        __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x0000010e                        __data_load_start = LOADADDR (.data)
+                0x0000010e                        __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x00800060        0x0
                 [!provide]                        PROVIDE (__noinit_start = .)
@@ -325,8 +334,9 @@ END GROUP
 
 .comment        0x00000000       0x2f
  *(.comment)
- .comment       0x00000000       0x2f C:\Users\lenovo\OneDrive\Desktop\assignments\day11\release\Switch\switch_program.c.o
+ .comment       0x00000000       0x2f C:\Users\lenovo\OneDrive\Desktop\assignments\day11\Animation_task4\release\Animation_program.c.o
                                  0x30 (size before relaxing)
+ .comment       0x0000002f       0x30 C:\Users\lenovo\OneDrive\Desktop\assignments\day11\Animation_task4\release\main.c.o
 
 .note.gnu.avr.deviceinfo
                 0x00000000       0x3c
@@ -423,5 +433,5 @@ END GROUP
 
 .debug_sup
  *(.debug_sup)
-OUTPUT(C:\Users\lenovo\OneDrive\Desktop\assignments\day11\release\DIO.elf elf32-avr)
+OUTPUT(C:\Users\lenovo\OneDrive\Desktop\assignments\day11\Animation_task4\release\Animation.elf elf32-avr)
 LOAD linker stubs

@@ -6,10 +6,6 @@
 #define NotPressed 0
 
 
-
-
-
-
 //=============ATMEGA32_REG_MAP==================//
 #define SREG_Reg     *((volatile uint8_t*)0x5F)  
 #define SPH_Reg      *((volatile uint8_t*)0x5E)
